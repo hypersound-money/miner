@@ -16,6 +16,8 @@ async function mine () {
     	}).catch(e => {
     		console.error('An error occurred while executing the transaction with the nonce', nonce, e)
     	})
+	}).catch(e => {
+		console.error('An error occurred while executing the transaction with the nonce', nonce, e)
 	})
 }
 
