@@ -2,7 +2,7 @@ const config = require('./config.js');
 const ethers = require('ethers');
 const provider = new ethers.JsonRpcProvider(config.RPC);
 const miner = new ethers.Wallet(config.PRIVATE_KEY, provider);
-const HYPERSOUND_ADDRESS = '0x22B309977027D4987C3463774D7046d5136CB14a';
+const HYPERSOUND_ADDRESS = '0xF8797dB8a9EeD416Ca14e8dFaEde2BF4E1aabFC3';
 const HYEPRSOUND_ABI = require('./abi.json')
 const hypersound = new ethers.Contract(HYPERSOUND_ADDRESS, HYEPRSOUND_ABI, miner);
 
