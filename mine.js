@@ -10,7 +10,7 @@ const hypersound = new ethers.Contract(HYPERSOUND_ADDRESS, HYEPRSOUND_ABI, miner
 async function mine (_nonce) {
 	try {
 		let tx
-
+	
 		if (config.CALLS_PER_MINE_TX === 1) {
 			tx = await hypersound.connect(miner).mine('0x', { nonce: _nonce, gasLimit: config.GAS_LIMIT })
 		} else {
@@ -20,11 +20,11 @@ async function mine (_nonce) {
 		console.log('Mine transaction sent with the nonce', _nonce)
 		
 		tx.wait().then(result => {
-    		console.log('Mine transaction confirmed with the nonce', _nonce)
-    	})
+			console.log('Mine transaction confirmed with the nonce', _nonce)
+	    	})
 	} catch (e) {
 		console.error('An error occurred while executing the transaction with the nonce', _nonce, e)
-        console.log(e.code, e.info, e?.data.info)
+        	console.log(e.code, e.info, e?.data?.info)
 	}
 }
 
