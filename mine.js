@@ -19,6 +19,8 @@ const walletClient = createWalletClient({
 const HYPERSOUND_ADDRESS = '0xF8797dB8a9EeD416Ca14e8dFaEde2BF4E1aabFC3'
 const HYEPRSOUND_ABI = require('./abi.json')
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
 async function mine() {
 	try {
 		let hash
@@ -51,13 +53,20 @@ async function mine() {
 	}
 }
 
-async function start() {
-	mine()
+let isRunning = true
 
-	setInterval(() => {
-		mine()
-	}, 60000 / parseInt(process.env.MINE_TX_PER_MINUTE))
+async function start() {
+	while (isRunning) {
+		await mine()
+		await sleep(60000 / parseInt(process.env.MINE_TX_PER_MINUTE))
+	}
 }
 
 start()
+
+// Handle graceful shutdown for docker
+process.on('SIGINT', () => {
+	console.log('Shutting down...')
+	isRunning = false
+})
 
