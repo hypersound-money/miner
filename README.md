@@ -36,15 +36,11 @@ For security reasons, it's recommended to create a new wallet address specifical
 ### Running with Docker
 1. Start the miner:
    ```bash
-   docker-compose up
+   docker compose up
    ```
-2. View logs:
+2. Stop the miner:
    ```bash
-   docker-compose logs -f
-   ```
-3. Stop the miner:
-   ```bash
-   docker-compose down
+   docker compose down # or just exit with CTRL+C
    ```
 
 Please note: This example is very basic and will need to be improved to remain competitive over a long period of time.
