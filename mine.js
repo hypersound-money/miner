@@ -31,8 +31,7 @@ async function mine() {
 				abi: HYEPRSOUND_ABI,
 				functionName: 'mine',
 				args: ['0x'],
-				account,
-				gas: BigInt(200000)
+				account
 			})
 		} else { // mine multiple with mineBatch()
 			hash = await walletClient.writeContract({
@@ -40,8 +39,7 @@ async function mine() {
 				abi: HYEPRSOUND_ABI,
 				functionName: 'mineBatch',
 				args: [BigInt(mineAmount), '0x'],
-				account,
-				gas: BigInt(27000000)
+				account
 			})
 		}
 		console.log('Mine transaction sent. Hash:', hash)
