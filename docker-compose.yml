@@ -8,6 +8,5 @@ services:
     command: sh -c "npm install && node mine.js"
     stop_signal: SIGINT
     stop_grace_period: 1s
-    restart: unless-stopped
     env_file:
       - .env 
