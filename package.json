@@ -5,6 +5,7 @@
   "author": "blastoshi",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^6.13.2"
+    "dotenv": "^16.4.5",
+    "viem": "^2.7.9"
   }
 }
